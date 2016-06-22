@@ -26,33 +26,37 @@ csl: advances-in-alzheimers-disease.csl
 # がんの記述疫学：
 
 ## 目的：   
-年齢，出生コート，時期効果に関する内容を理解する．  
+1. 各部位がんのリスク要因を調べる．  
+2. 年齢，出生コホート，時期効果に関する内容を理解する．  
 
 ## 方法：   
-日本のがん登録データをダウロードして．配布された資料を参考した上で，次の各部位のがんを解析する．各部位がんデータから年齢・出生コホート・時期効果があるかを説明する．
+各部位がんのリスク要因を検索して，できるだけ挙げる．
+配布資料を参考した上で，日本のがん登録データをダウロードし，次の各部位のがんを解析する．
+各部位がんデータから年齢・出生コホート・時期効果があるかを説明する．
 
 ## 課題:
 
-1. 肝がん死亡データの年齢，出生コホート，時期効果分析 (Group 1)
+1. 肝がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 1)
 
-2. 胃がん死亡データの年齢，出生コホート，時期効果分析 (Group 2)
+2. 胃がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 2_菊地先生)
 
-3. 胆のうがん死亡データの年齢，出生コホート，時期効果分析 (Group 3)
+3. 胆のうがんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 3)
  
-4. 膵がん死亡データの年齢，出生コホート，時期効果分析 (Group 4)
+4. 膵がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 4)
 
-5. 食道がん死亡データの年齢，出生コホート，時期効果分析 (Group 5)
+5. 食道がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 5)
 
-6. 肺がん死亡データの年齢，出生コホート，時期効果分析 (Group 6)
+6. 肺がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析 (Group 6)
 
 
 # 参考：
 
 1. [https://rpubs.com/kaz_yos/epi-cross-long](https://rpubs.com/kaz_yos/epi-cross-long)
 
-2. 配布した資料  [@szklo_epidemiology:_2012] Chapter 1: 1.2 (Page 4-14)
-
-3. データ入手先：cancer_mortality(1958-2014).xls [@rikan] [http://ganjoho.jp/reg_stat/statistics/dl/index.html](http://ganjoho.jp/reg_stat/statistics/dl/index.html)
+2. テキストの該当部分[@szklo_epidemiology:_2012] Chapter 1: 1.2 (Page 4-14)   
+    pdf download: [http://winterwang.github.io/files/textbook.pdf](http://winterwang.github.io/files/textbook.pdf)
+    
+3. 実習用データの入手先：cancer_mortality(1958-2014).xls [@rikan] [http://ganjoho.jp/reg_stat/statistics/dl/index.html](http://ganjoho.jp/reg_stat/statistics/dl/index.html)
 
 
 # 年齢，出生コホート，時期効果に関する内容の理解
@@ -97,12 +101,12 @@ tab1.2.melt$year <- factor(tab1.2.melt$year)
 ```
 
 
-## Table 1. 1975年から2005年に渡って，10年ごと一度某病気の罹患率を横断的な調査した結果：
+## Table 1. ある集団で，1975年から2005年に渡って，10年ごと一度某病気の罹患率を横断的な調査した結果：
 
 * 変数説明：  
     group: 年齢世代  
-    midpoint: 世代真ん中の年齢  
-* それぞれの横断的調査（各列を縦方向に読む）から見ると，年齢の増加につれて，罹患率が下がって率ような結果になる．
+    midpoint: 世代真ん中の年齢値  
+* それぞれの横断的調査（縦方向）から見ると，年齢の増加につれて，罹患率が下がっているような結果になる．
 
 ```{r cache=TRUE, results='asis', echo=FALSE}
 stargazer::stargazer(tab1.2, summary=FALSE, title = "Same with Page 5 Table 1-2 in the textbook")
@@ -130,14 +134,14 @@ plot.prev.age <-
 fig1.2 <- plot.prev.age + 
   geom_line(mapping = aes_string(group = "year",color = "year"), 
             data = tab1.2.melt) +
-  labs(title = "Table 1. Cross-sectional studies of prevalence of disease\n  (Based on data from Table 1)\n Same with Figure 1-2 in the textbook")
+  labs(title = "Figure 1. Cross-sectional studies of prevalence of disease\n  (Based on data from Table 1)\n Same with Figure 1-2 in the textbook")
 fig1.2
 ```
 
 
 ## Figure 2 各出生コホートにおいて，縦断的な年齢効果の可視化グラフ (Longitudinal effect of age for each birth cohort)
 
-* 点線したのは，各出生コホートが加齢している（エージング）時の罹患率を示している．  
+* 点線で示したものは，各出生コホートが加齢する（エージング）時の罹患率．
 * すべての出生コホートにおいて，加齢とともに，罹患率は増加している．
 
 ```{r cache=TRUE, warning=FALSE, echo=FALSE}
@@ -148,7 +152,7 @@ fig1.3 <- plot.prev.age +
             data = tab1.2.melt, lty = 2) +
     ## Add survey year grouping for year 2005 only
   geom_line(data = subset(tab1.2.melt, year == 2005),
-          mapping = aes_string(group = "year"))+
+          mapping = aes_string(group = "year")) +
   labs(title = "Figure 2. Plot the data by birth cohort (dotted lines = birth cohorts)\n same with figure 1-3 in the textbook")
 fig1.3
 ```
@@ -156,7 +160,7 @@ fig1.3
 
 ## Table 2. 出生コホートによる罹患率を再整理した表 
 
-* 出生コホート(横方向)が加齢する時の罹患率は上昇している．
+* 出生コホート(横方向)が加齢すると，罹患率は上昇している．
 
 ```{r  cache=TRUE, results='asis', echo=FALSE}
 ## Array casting
@@ -172,9 +176,9 @@ stargazer::stargazer(tab1.3, summary=FALSE,
 
 ## Figure 3: 出生コホートごとの罹患率
 
-* この図は，異常コホートを探すには有利である．
+* この図は，異常な出生コホートを探すには有利である．
+* 年齢群を点線で示している．同じ年齢なのに，違う年に生まれたら，罹患率が異なる．（図中には横軸の右方向）
 
-This is grouped by the age at the surveys. In each age group, those who were born more recently (more right) have higher prevalence, i.e., at the same age, those who were born more recently had higher prevalences of this hypothetical disease.
 
 ```{r cache=TRUE, warning=FALSE, echo=FALSE}
 ## Change age midpoint to categorical
@@ -192,7 +196,8 @@ plot.prev.cohort <-
 ## Plot grouping by age midpoints
 fig1.4 <- plot.prev.cohort +
   geom_line(mapping = aes_string(group = "midpoint", 
-                                 color = "midpoint"), lty = 4)
+                                 color = "midpoint"), lty = 4)+
+  labs(title = "Figure 3. Plot the data by birth cohort in the x axis.\n same with figure 1-4 in the textbook")
 fig1.4
 ```
 

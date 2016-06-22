@@ -36,46 +36,6 @@
             urlcolor=Blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -140,28 +100,43 @@
 
 \subsection{目的：}
 
-年齢，出生コート，時期効果に関する内容を理解する．
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  各部位がんのリスク要因を調べる．\\
+\item
+  年齢，出生コホート，時期効果に関する内容を理解する．
+\end{enumerate}
 
 \subsection{方法：}
 
-日本のがん登録データをダウロードして．配布された資料を参考した上で，次の各部位のがんを解析する．各部位がんデータから年齢・出生コホート・時期効果があるかを説明する．
+各部位がんのリスク要因を検索して，できるだけ挙げる．
+配布資料を参考した上で，日本のがん登録データをダウロードし，次の各部位のがんを解析する．
+各部位がんデータから年齢・出生コホート・時期効果があるかを説明する．
 
 \subsection{課題:}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  肝がん死亡データの年齢，出生コホート，時期効果分析 (Group 1)
+  肝がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 1)
 \item
-  胃がん死亡データの年齢，出生コホート，時期効果分析 (Group 2)
+  胃がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 2\_菊地先生)
 \item
-  胆のうがん死亡データの年齢，出生コホート，時期効果分析 (Group 3)
+  胆のうがんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 3)
 \item
-  膵がん死亡データの年齢，出生コホート，時期効果分析 (Group 4)
+  膵がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 4)
 \item
-  食道がん死亡データの年齢，出生コホート，時期効果分析 (Group 5)
+  食道がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 5)
 \item
-  肺がん死亡データの年齢，出生コホート，時期効果分析 (Group 6)
+  肺がんのリスク要因と死亡データの年齢，出生コホート，時期効果分析
+  (Group 6)
 \end{enumerate}
 
 \section{参考：}
@@ -171,9 +146,10 @@
 \item
   \url{https://rpubs.com/kaz_yos/epi-cross-long}
 \item
-  配布した資料 {[}1{]} Chapter 1: 1.2 (Page 4-14)
+  テキストの該当部分{[}1{]} Chapter 1: 1.2 (Page 4-14)\\
+  pdf download: \url{http://winterwang.github.io/files/textbook.pdf}
 \item
-  データ入手先：cancer\_mortality(1958-2014).xls {[}2{]}
+  実習用データの入手先：cancer\_mortality(1958-2014).xls {[}2{]}
   \url{http://ganjoho.jp/reg_stat/statistics/dl/index.html}
 \end{enumerate}
 
@@ -193,18 +169,17 @@
 \end{itemize}
 
 \subsection{Table 1.
-1975年から2005年に渡って，10年ごと一度某病気の罹患率を横断的な調査した結果：}\label{table-1.-1975200510}
+ある集団で，1975年から2005年に渡って，10年ごと一度某病気の罹患率を横断的な調査した結果：}\label{table-1.-1975200510}
 
 \begin{itemize}
 \tightlist
 \item
   変数説明：\\
   group: 年齢世代\\
-  midpoint: 世代真ん中の年齢\\
+  midpoint: 世代真ん中の年齢値\\
 \item
-  それぞれの横断的調査（各列を縦方向に読む）から見ると，年齢の増加につれて，罹患率が下がって率ような結果になる．
+  それぞれの横断的調査（縦方向）から見ると，年齢の増加につれて，罹患率が下がっているような結果になる．
 \end{itemize}
-
 
 
 \begin{table}[!htbp] \centering 
@@ -248,7 +223,7 @@ cohort)}\label{figure-2--longitudinal-effect-of-age-for-each-birth-cohort}
 \begin{itemize}
 \tightlist
 \item
-  点線したのは，各出生コホートが加齢している（エージング）時の罹患率を示している．\\
+  点線で示したものは，各出生コホートが加齢する（エージング）時の罹患率．
 \item
   すべての出生コホートにおいて，加齢とともに，罹患率は増加している．
 \end{itemize}
@@ -261,7 +236,7 @@ cohort)}\label{figure-2--longitudinal-effect-of-age-for-each-birth-cohort}
 \begin{itemize}
 \tightlist
 \item
-  出生コホート(横方向)が加齢する時の罹患率は上昇している．
+  出生コホート(横方向)が加齢すると，罹患率は上昇している．
 \end{itemize}
 
 
@@ -287,38 +262,15 @@ cohort)}\label{figure-2--longitudinal-effect-of-age-for-each-birth-cohort}
 \end{tabular} 
 \end{table}
 
-\subsection{Figure 3:}\label{figure-3}
+\subsection{Figure 3: 出生コホートごとの罹患率}\label{figure-3-}
 
-This graph is useful in detecting an unusual birth cohort. If there is a
-spike, that specific birth cohort more severely affected than other
-cohorts.
-
-This is grouped by the age at the surveys. In each age group, those who
-were born more recently (more right) have higher prevalence, i.e., at
-the same age, those who were born more recently had higher prevalences
-of this hypothetical disease.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## Change age midpoint to categorical}
-\NormalTok{tab1}\FloatTok{.2}\NormalTok{.melt$midpoint <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(tab1}\FloatTok{.2}\NormalTok{.melt$midpoint)}
-
-\NormalTok{## Configure prevalence vs birth cohort plot}
-\NormalTok{plot.prev.cohort <-}
-\StringTok{    }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{subset}\NormalTok{(tab1}\FloatTok{.2}\NormalTok{.melt, !}\KeywordTok{is.na}\NormalTok{(prevalence)),}
-                 \DataTypeTok{mapping =} \KeywordTok{aes_string}\NormalTok{(}\DataTypeTok{x =} \StringTok{"cohort"}\NormalTok{, }
-                                      \DataTypeTok{y =} \StringTok{"prevalence"}\NormalTok{)) +}
-\StringTok{    }\KeywordTok{geom_point}\NormalTok{() +}
-\StringTok{    }\KeywordTok{theme_bw}\NormalTok{() +}
-\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.key =} \KeywordTok{element_blank}\NormalTok{())}
-
-\NormalTok{## Plot grouping by age midpoints}
-\NormalTok{fig1}\FloatTok{.4} \NormalTok{<-}\StringTok{ }\NormalTok{plot.prev.cohort +}
-\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{mapping =} \KeywordTok{aes_string}\NormalTok{(}\DataTypeTok{group =} \StringTok{"midpoint"}\NormalTok{, }
-                                 \DataTypeTok{color =} \StringTok{"midpoint"}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{4}\NormalTok{)}
-\NormalTok{fig1}\FloatTok{.4}
-\end{Highlighting}
-\end{Shaded}
+\begin{itemize}
+\tightlist
+\item
+  この図は，異常な出生コホートを探すには有利である．
+\item
+  年齢群を点線で示している．同じ年齢なのに，違う年に生まれたら，罹患率が異なる．（図中には横軸の右方向）
+\end{itemize}
 
 \includegraphics{guidance_files/figure-latex/unnamed-chunk-6-1.pdf}
 
