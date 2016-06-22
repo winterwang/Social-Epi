@@ -1,0 +1,94 @@
+---
+title: 平成28年度社会医学実習--実施例
+author: "王　超辰"
+date: "2016年6月23日"
+header-includes:
+  - \usepackage{xltxtra}
+  - \XeTeXlinebreaklocale "ja"
+  - \XeTeXlinebreakskip=0pt plus 1pt
+  - \XeTeXlinebreakpenalty=0
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: yes
+mainfont: IPAPMincho
+sansfont: IPAPGothic
+linkcolor: blue
+fontsize: 11pt
+bibliography: refs.bib 
+csl: advances-in-alzheimers-disease.csl
+---
+
+# 例：日本人肝がん罹患の年齢，出生コホート，時期効果分析
+```{r cache=TRUE}
+## Load XLConnect
+library(XLConnect)
+## From a newly created file with sheet 4 (rate data) only
+rate.all <- readWorksheetFromFile("cancer_incidence(1975-2011)rate.xls",
+                                  sheet = 1)
+## Change variable names
+names(rate.all) <- gsub("X", "age", names(rate.all))
+names(rate.all) <- gsub("歳", "", names(rate.all))
+names(rate.all) <- gsub("以上", "plus", names(rate.all))
+names(rate.all) <- gsub("診断年", "Dia_yr", names(rate.all))
+names(rate.all) <- gsub("\\.", "_", names(rate.all))
+## Show data
+head(rate.all)
+```
+
+## Graphing hepatic cancer data
+```{r cache=TRUE, warning=FALSE, fig.height=6.5, fig.width=7} 
+## Extract all-sex data hepatic cancer mortality data
+rate.hepatic <- subset(rate.all, 部位 == "肝臓" & 性別 == "男女計")
+## Change to long format
+library(reshape2)
+rate.hepatic.melt <- melt(data          = rate.hepatic,
+                ##id.vars       = c(),
+                measure.vars  = names(rate.hepatic)[grep("age", names(rate.hepatic))],
+                variable.name = "Age_Range",
+                value.name    = "Incidence_Rate"
+                          )
+names(rate.hepatic.melt$Age_Range) <- gsub("_", "-", 
+                                           as.character(rate.hepatic.melt$Age_Range))
+
+## Regroup calendar year of death by five year intervals
+rate.hepatic.melt$Cal_yr5 <- cut(rate.hepatic.melt$Dia_yr, 
+                                 breaks = seq(from = 1974, to = 2015, by = 5))
+
+## Create a variable representing the lowest age in the interval
+rate.hepatic.melt$age <- seq(from = 0, to = 85, 
+                             by = 5)[rate.hepatic.melt$Age_Range]
+
+## Calculate the year of birth
+rate.hepatic.melt$Birth_yr <- with(rate.hepatic.melt, 
+                                   Dia_yr - age)
+
+## Create the year of birth categories
+rate.hepatic.melt$Birth_yr5 <- cut(rate.hepatic.melt$Birth_yr,
+                                   breaks = seq(from = 1889, to = 2015, by = 5))
+rate.hepatic.melt$Birth_yr30 <- cut(rate.hepatic.melt$Birth_yr,
+                                    breaks = seq(from = 1870, to = 2030, by = 30))
+
+## Check first 20 rows
+head(rate.hepatic.melt, 20)
+
+## Load ggplot2
+library(ggplot2)
+
+## Plot by calendar year, grouped by age of diagnosis
+ggplot(data = rate.hepatic.melt,
+       mapping = aes(x = Birth_yr, y = Incidence_Rate,
+                     color = Age_Range)) + 
+  geom_line() +
+  geom_point() +
+    labs(title = 
+           "Hepatic Cancer Incidence in Japan\n (Grouped by age at diagnosis)") + 
+    theme_bw() +
+    theme(legend.key = element_blank(),
+          axis.text.x = element_text(angle=90, vjust=1))
+
+
+```
+
