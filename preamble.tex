@@ -1,0 +1,43 @@
+%%% ============================================================
+%%%  @LaTeX-style-file{
+%%%    author            = "Michael Wester",
+%%%    version           = "1.0",
+%%%    date              = "July 1991",
+%%%    time              = "NULL",
+%%%    filename          = "address.tex",
+%%%    address           = "Math & Stat Dept.
+%%%                         University of New Mexico
+%%%                         Albuquerque, NM 87131",
+%%%    telephone         = "NA",
+%%%    FAX               = "NA",
+%%%    checksum          = "NA",
+%%%    email             = "wester@spectre.unm.edu (Internet)",
+%%%    codetable         = "ISO/ASCII",
+%%%
+%%%    keywords          = "LaTeX, TeX, formletter, mailing labels",
+%%%    supported         = "yes",
+%%%
+%%%    docstring         = "Generic TeX/LaTeX preamble for
+%%%                         address.tex",
+%%% }
+%%% ====================================================================
+\ifundefined{LaTeX}               % TeX
+   \magnification=\magstep1
+   \voffset=0in
+   \hoffset=0in
+   \vsize=9in
+   \hsize=6.5in
+   \nopagenumbers
+   %
+   \def\\{\hfil\break}
+   \def\newpage{\vfil\eject}
+\else                             % LaTeX
+   \documentstyle[12pt]{letter}
+   \topmargin 0in
+   \headheight 0in
+   \headsep 0in
+   \oddsidemargin 0in
+   \textheight 9in
+   \textwidth 6.5in
+   \pagestyle{empty}
+\fi
